@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% eLife Appendix Article File
+% Upload separately as a second Article File, not as a generic
+% Supplementary File. Figure supplements remain in main.tex.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt,lineno]{elife}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{acronym}
+\setlength{\emergencystretch}{2em}
+\hypersetup{
+  pdftitle={Appendices to: Phasic pupillary responses to photoreceptor-directed stimuli remain stable across circadian phase},
+  pdfauthor={Hannah Sophie Heinrichs, Diana Glebowicz, and Manuel Spitschan}
+}
+
+% Stimulus-condition abbreviations used in the appendix tables.
+\acrodef{flux}[FLUX]{broadband light flux modulation of all cone classes and melanopsin}
+\acrodef{lm}[L--M]{nominal red-green chromatic cone-opponent modulation}
+\acrodef{lms}[LMS]{achromatic luminance modulation, equally for all cones}
+\acrodef{mel}[MEL]{melanopsin-directed modulation of ipRGCs}
+\acrodef{s}[S]{approximate blue/violet-yellow chromatic, S-cone directed modulation}
+
+% Generated macros for the protocol-specified outcome (Appendix 4).
+% Regenerate with: python supplementary_protocol_pipeline.py --fit
+\input{tex/protocol_plr/vars_protocol_plr}
+\input{tex/protocol_plr/vars_protocol_plr_traces}
+\input{tex/protocol_plr/plr_ratio/vars_circadian_cosinor_parameters}
+\input{tex/protocol_plr/plr_ratio/vars_circadian_model_summary}
+\input{tex/protocol_plr/plr_ratio/vars_diagnose_circadian_plr_ratio}
+
+% Defined in main.tex; repeated here because this file compiles separately.
+\def\logbf{$\log_{10} \mathrm{BF}_{10}$}
+
+\begin{document}
+
+\title{Appendices to: Phasic pupillary responses to photoreceptor-directed stimuli remain stable across circadian phase}
+
+\author[1,2]{Hannah Sophie Heinrichs}
+\author[1]{Diana Glebowicz}
+\author[1,2,3,4*]{Manuel Spitschan}
+
+\affil[1]{Max Planck Institute for Biological Cybernetics, Tübingen, Germany}
+\affil[2]{Technical University of Munich, TUM School of Medicine and Health, Munich, Germany}
+\affil[3]{Technical University of Munich, TUM Institute for Advanced Study (TUM-IAS), Garching, Germany}
+\affil[4]{TUMCREATE Ltd., Singapore, Singapore}
+
+\corr{manuel.spitschan@tum.de}{MS}
+
+\maketitle
+
+\noindent This separate Appendix Article File documents analysis scope and protocol deviations and provides complete numerical reporting for the two revised pupil outcomes analysed in the main article. It additionally reports the pupil outcome specified in the published protocol, which the main article does not analyse; that analysis is confined to Appendix~\ref{app:protocol_plr} and introduces no change to the outcomes, model comparisons, or hypothesis tests reported in the main text. Figure supplements are defined with their parent figures in \texttt{main.tex} and are therefore not duplicated here.
+
+\input{appendix}
+
+\end{document}

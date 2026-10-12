@@ -1,0 +1,197 @@
+\appendix
+
+\begin{appendixbox}
+\label{app:analysis_scope}
+\section{Analysis scope and deviations from the published protocol}
+
+The published protocol for this study (cited in the main article) and the analyses reported in the article differ in several material respects. Table~\ref{tab:appendix_protocol_deviations} records those differences so that the evidential status of the present results is explicit. It does not assign a rationale or timing to changes that are not documented in the materials accompanying this manuscript.
+
+\nolinenumbers
+\begin{center}
+\captionof{table}{Comparison of the published protocol with the analyses reported here. These differences mean that the 0.4-Hz phasic-amplitude and tonic-minimum analyses should not be interpreted as confirmatory tests of the protocol's primary pupil outcome.}
+\label{tab:appendix_protocol_deviations}
+\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.22\linewidth}@{}}
+\toprule
+Aspect & Published protocol & Present article & Consequence for interpretation \\
+\midrule
+Pupil outcome & Maximum constriction during the 5-s stimulus, normalised to the broadband flux response & Unnormalised 0.4-Hz phasic amplitude and tonic minimum & Revised outcomes; neither is the protocol's primary outcome. The protocol outcome is analysed in Appendix~\ref{app:protocol_plr}, which reaches the same conclusion \\
+\addlinespace
+Melatonin model & Single-harmonic cosinor & Bi-harmonic cosinor & Additional fitted harmonic \\
+\addlinespace
+Candidate period & 20--28~h & 22--28~h & Narrower search range. Widening it to 20--28~h selects the same period for every participant and leaves the results unchanged (Appendix~\ref{app:protocol_plr}) \\
+\addlinespace
+Stopping & Sequential Bayes-factor rule based on the melanopsin-directed response, with a maximum sample of 12 & The article reports 12 completers and eight participants after quality control; the sequential rule was not applied, because evaluating the evidence during data collection was not feasible alongside the demands of running the protocol & Fixed sample; recruitment did not depend on interim evidence \\
+\addlinespace
+Rod control & Rod-escape control planned after the main data collection & Not included in this report & Photoreceptor directions remain nominal; rod intrusion is not empirically excluded here \\
+\bottomrule
+\end{tabularx}
+\end{center}
+% Restore the box-local numbering that appendixbox set up; the global
+% \linenumbers breaks mdframed's page splitting inside the frame.
+\internallinenumbers
+
+\subsection{Rationale for the revised pupil outcome}
+
+The following rationale is provided to aid interpretation. It was not documented in the protocol record and does not restore confirmatory status.
+
+The stimulus was a continuous 0.4-Hz sinusoid, designed so that the pupil would track the modulation throughout the stimulus epoch. The expected response is therefore a sustained oscillation, which is more appropriately quantified by a cosinor fit and its amplitude at the stimulus frequency than by maximum constriction. Maximum constriction captures only the single deepest excursion and is better suited to a brief light pulse that evokes a transient response. The revised decomposition also separates the slow, sustained constriction (tonic) from the oscillation at the stimulus frequency superimposed on it (phasic), which need not vary in the same way across circadian phase.
+
+This reasoning is borne out in the data. Appendix~\ref{app:protocol_plr} derives the protocol outcome and shows that it is dominated by the sustained component rather than by oscillatory tracking: the \acs{lm} condition yields the largest maximum constriction of any condition while having the smallest oscillation, reversing the ordering obtained from the phasic amplitudes. Maximum constriction is therefore not a less precise measure of the same quantity; it measures something else.
+
+The protocol also specified dividing each condition-specific response by the broadband flux response, with the aim of removing circadian variation common to the photoreceptor pathways and isolating variation specific to the targeted photoreceptor. This is a sound approach in principle, but its interpretation here has two limitations.
+First, the broadband flux response is itself one of the five conditions whose variation across circadian phase is of interest, so that variation must be characterised rather than assumed away through its use as a denominator.
+Second, a flat ratio may indicate either that neither response varies or that both vary together, and distinguishing these cases is precisely what a circadian test is intended to do.
+If circadian variation is observed in both the flux condition and another condition, their relative responses may then be explored in a secondary analysis. That ratio analysis is reported in Appendix~\ref{app:protocol_plr}; it favours the constant-level model in every condition, as the unnormalised outcomes do, so the conclusions of the article do not depend on which of the three pupil outcomes is analysed.
+
+\section{Scope of the Bayesian comparison}
+
+For each stimulus condition, M0 contains a population intercept and participant-specific intercepts. M1 adds population and participant-specific sine and cosine terms at a period set by each participant's melatonin fit. The Bayes factor therefore compares these two complete hierarchical specifications; it is not a model-free test of whether any temporal variation exists. The priors are scaled using the observed outcome dispersion, so the Bayes factors are also conditional on this data-dependent choice.
+
+Time is represented by nominal block time ($t_b=b\times3.75$~h), and the melatonin estimate sets the period but does not align observations to an independently estimated melatonin phase marker. Uncertainty in the estimated period is not propagated into the pupil model. Consequently, the analysis is most directly interpreted as a comparison between constant and approximately sinusoidal trajectories across nominal protocol time.
+
+The derived circadian amplitude $\sqrt{\alpha^2+\beta^2}$ is non-negative by construction, and its phase is weakly identified when both slopes are near zero. Sine and cosine slopes, the complete model comparison, and their numerical precision therefore take precedence over derived amplitude and phase summaries.
+\end{appendixbox}
+
+\begin{appendixbox}
+\label{app:phasic_model_details}
+\section{Complete model output for phasic pupil tracking}
+
+This appendix reports the full posterior parameter estimates and numerical diagnostic summary for the revised phasic-amplitude outcome analysed in the article. It adds no outcome, model comparison, or hypothesis test beyond those reported in the main text.
+\end{appendixbox}
+
+% Long editable tables are kept as ordinary floats outside appendixbox because
+% the eLife class does not permit floats within its framed appendix environment.
+\input{tables/circadian_cosinor/amplitude/tab_parameter_estimates_amplitude}
+\clearpage
+\input{tables/circadian_cosinor_diagnostics/amplitude/tab_diagnostics_summary_amplitude}
+\clearpage
+
+\begin{appendixbox}
+\label{app:tonic_model_details}
+\section{Complete model output for tonic constriction}
+
+This appendix reports the full posterior parameter estimates and numerical diagnostic summary for the revised tonic-minimum outcome analysed in the article. It adds no outcome, model comparison, or hypothesis test beyond those reported in the main text.
+\end{appendixbox}
+
+\input{tables/circadian_cosinor/tonic_min/tab_parameter_estimates_tonic_min}
+\clearpage
+\input{tables/circadian_cosinor_diagnostics/tonic_min/tab_diagnostics_summary_tonic_min}
+\clearpage
+
+% ---------------------------------------------------------------------------
+% The protocol-specified pupil outcome.
+%
+% Resolves the pupil-outcome row of Table~\ref{tab:appendix_protocol_deviations}
+% and the secondary ratio analysis anticipated in "Rationale for the revised
+% pupil outcome" above.
+%
+% Macro-driven values require, in supplement.tex:
+%   \input{tex/protocol_plr/plr_ratio/vars_circadian_cosinor_parameters}
+%   \input{tex/protocol_plr/plr_ratio/vars_circadian_model_summary}
+%   \input{tex/protocol_plr/plr_ratio/vars_diagnose_circadian_plr_ratio}
+% ---------------------------------------------------------------------------
+\begin{appendixbox}
+\label{app:protocol_plr}
+\section{The protocol-specified pupil outcome}
+
+Table~\ref{tab:appendix_protocol_deviations} records that the published protocol specified a different primary pupil outcome from the one analysed in the main article. That outcome is the maximum pupil-constriction amplitude for each condition normalised to the corresponding broadband \acs{flux} response, which the protocol denotes $R$ and terms the relative pupil constriction:
+%
+\begin{equation}
+\label{eq:appendix_protocol_ratio}
+R_{ibc} = \frac{\bar{A}_{ibc}}{\bar{A}_{ib,\acs{flux}}},
+\end{equation}
+%
+where $\bar{A}_{ibc}$ is the mean maximum pupil-constriction amplitude for participant $i$, measurement block $b$ and condition $c$. This appendix analyses that outcome directly and characterises what it measures in these data.
+
+\subsection{Derivation}
+
+The derivation starts from the same cleaned traces and the same quality control as the analyses in the main article, so the two differ only in the outcome computed from them. Maximum constriction was obtained separately for each accepted trial as the difference between the pre-stimulus mean over 1 second and the smallest diameter recorded during the 5-s stimulus, so that constriction is positive. Trial amplitudes were then averaged over all accepted trials in a retained block, pooling the two tests within it. Each non-\acs{flux} block amplitude was divided by the \acs{flux} amplitude from the same participant and the same block, and the requirement of at least six blocks per participant and condition was applied after that pairing. The \acs{flux} condition is not itself modelled, since $\bar{A}_{\acs{flux}}/\bar{A}_{\acs{flux}} = 1$ by construction.
+
+\acs{flux} was recorded in every one of the \ProtocolPlrAllNBlocksAnyData{} retained blocks that hold any data, so pairing cost between three and seven blocks per condition and left \ProtocolPlrAllNParticipantsMax{} participants (\ProtocolPlrAllNParticipantsMin{} for \acs{lm}) and \ProtocolPlrAllNObsMin{}--\ProtocolPlrAllNObsMax{} retained block-level observations per condition, against 74--83 for the phasic amplitude. No block-level amplitude was at or below zero, and the smallest \acs{flux} denominator was \ProtocolPlrAllFluxDenominatorMinMm{}~mm, so no observation required special handling.
+
+\subsection{What this outcome measures}
+
+The registered outcome is not a less precise version of the phasic amplitude analysed in the main article. It measures something different, and Appendix Figure~\ref{fig:appendix_protocol_endpoint} shows what.
+
+Each trial comprises a large sustained constriction out of the white inter-trial background with the 0.4-Hz modulation superimposed on it. A maximum taken over the whole stimulus reads the single deepest sample and is therefore dominated by the sustained component. The consequence is visible in the condition ordering: the \acs{lm} condition produces the largest maximum constriction of any condition (\ProtocolPlrLMEndpointMm{}~mm, against \ProtocolPlrMelEndpointMm{}~mm for \acs{mel} and \ProtocolPlrFluxEndpointMm{}~mm for \acs{flux}), yet in the phasic analysis reported in the main article it has the smallest fitted amplitude at the stimulus frequency. The two orderings are close to reversed, which they could not be if the endpoints were measuring the same quantity with differing precision.
+
+Maximum constriction does track the stimulus: the minima cluster at the troughs of the 0.4-Hz modulation. The clustering is loose, however, so the endpoint is not a clean measure of oscillatory depth. Taken together, these observations are the reason the main article decomposes the averaged trace into tonic and phasic components rather than analysing maximum constriction.
+
+\subsection{Order of operations}
+
+The protocol specifies that the maximum is taken on each trial and the trial amplitudes are then averaged. Reversing the two steps -- averaging the trials into one trace and taking a single maximum from it -- changes the block-level amplitude by only \ProtocolPlrAllOrderingBiasMmMin{}--\ProtocolPlrAllOrderingBiasMmMax{}~mm, and both routes yield values near 1~mm, so the choice is not visible in the result. Both quantities were therefore computed for every retained block and are reported in Appendix Figure~\ref{fig:appendix_protocol_ordering}.
+
+The two routes trade bias against variance in opposite directions. The per-trial maximum is displaced deeper by measurement noise, by \ProtocolPlrAllOrderingBiasPctMin{}--\ProtocolPlrAllOrderingBiasPctMax{}\% of the endpoint depending on condition, so $R$ carries a condition-specific multiplicative bias. The averaged-trace route reduces that bias but increases the between-block variance of $R$, because it denoises the trace and then takes a single extremum from it rather than averaging roughly eight independent maxima. Since a near-constant bias is absorbed into the MESOR while between-block variance is the noise against which the circadian terms are estimated, the registered ordering is also the more sensitive one here. Averaged within participants, the standard deviation of $R$ across blocks is \ProtocolPlrAllWithinPpSdPertrialMin{}--\ProtocolPlrAllWithinPpSdPertrialMax{} for the registered ordering against \ProtocolPlrAllWithinPpSdAvgtraceMin{}--\ProtocolPlrAllWithinPpSdAvgtraceMax{} for the alternative. The two orderings give values correlated at $r = \ProtocolPlrAllOrderingCorrMin{}$--$\ProtocolPlrAllOrderingCorrMax{}$.
+
+\subsection{Circadian models}
+
+The outcome $R$ was entered into the same constant-level model M0 and cosinor model M1 used for the revised outcomes in the main article, fitted separately for each non-\acs{flux} condition with participant-specific periods from the salivary melatonin cosinor and the same sequential Monte Carlo settings. Full parameter estimates appear in Table~\ref{tab:tab_circadian_parameter_estimates_plr_ratio}, numerical diagnostics in Table~\ref{tab:tab_diagnostics_summary_plr_ratio}, and posterior fits against the observed series in Appendix Figure~\ref{fig:appendix_protocol_trajectories}.
+
+Evidence favoured the constant-level model in every condition, with \logbf{} ranging from $\CircadianCosinorPlrRatioLmsLogBf$ (\acs{lms}) to $\CircadianCosinorPlrRatioLMLogBf$ (\acs{lm}). The comparison against the two revised outcomes is shown in Appendix Figure~\ref{fig:appendix_protocol_bf}. The substantive conclusion of the main article therefore does not depend on which of the three pupil outcomes is analysed.
+
+One difference is worth recording. The tonic minimum is the only outcome that favours a circadian effect in the \acs{lm} condition, and the protocol outcome does not reproduce it. Because maximum constriction is dominated by the sustained component, it is the outcome most likely to recover a tonic effect, so its failure to do so suggests that result should be treated as provisional rather than corroborated.
+
+\subsection{Sensitivity analyses and limitations}
+
+Three sensitivity analyses were specified before fitting: a log transform of $R$; a participant-mean rather than block-matched \acs{flux} denominator; and the period range of 20--28~h given in the protocol.
+
+The raw ratio is right-skewed and residual normality is rejected in every condition, so the Gaussian likelihood cannot be assumed adequate. Under a log transform the evidence is unchanged in direction and magnitude in all four conditions, which is the relevant reassurance; the transform itself repairs normality in some conditions and not others.
+
+Replacing the block-matched denominator with each participant's mean \acs{flux} amplitude left the evidence favouring the constant-level model in every condition, although it shifted the \acs{lm} and \acs{lms} Bayes factors towards zero. Because that denominator does not cancel circadian variation shared between a condition and \acs{flux}, the agreement indicates the conclusion does not depend on which reading of Equation~\ref{eq:appendix_protocol_ratio} is adopted.
+
+Widening the period search from 22--28~h to the registered 20--28~h changed no result at all. Every participant's best-fitting period already lay between 23.1 and 25.2~h, so the wider range selected the same period in every case and the Bayes factors are identical to three decimal places. The narrowed range recorded in Table~\ref{tab:appendix_protocol_deviations} therefore had no bearing on these data.
+
+The \acs{lm} condition alone warrants a further check, because its evidence lies close to the point of indifference (\logbf{} $=\CircadianCosinorPlrRatioLMLogBf$). Refitting with each participant held out in turn moves \logbf{} between $-0.88$ and $+0.38$, so a single participant determines which model is favoured. No conclusion should be drawn about circadian modulation of \acs{lm} from these data, under any of the three pupil outcomes. The remaining three conditions were not sensitive in this way.
+
+Several limitations follow from the definition in Equation~\ref{eq:appendix_protocol_ratio} rather than from the data. A change in $R$ may arise from the numerator, the denominator, or both, and changes shared between a condition and \acs{flux} cancel. The four condition ratios share the same \acs{flux} observations and are therefore not four independent tests. Inference rests on seven or eight participants.
+
+Finally, restoring the registered outcome does not make this a confirmatory analysis. The sequential stopping rule cannot be reconstructed retrospectively, the priors used here were not specified in the protocol, and the single-harmonic melatonin model recorded in Table~\ref{tab:appendix_protocol_deviations} was not restored; only the period range was. These analyses were carried out after the results of the main analysis were known.
+\end{appendixbox}
+
+% Long tables sit outside appendixbox because the eLife class does not permit
+% floats within its framed appendix environment.
+\input{tables/protocol_plr/tab_parameter_estimates_plr_ratio}
+\clearpage
+\input{tables/protocol_plr/tab_diagnostics_summary_plr_ratio}
+\clearpage
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{figures/protocol_plr/fig_protocol_plr_endpoint.png}
+\caption{\textbf{The protocol-specified endpoint is dominated by sustained constriction.}
+(\textbf{A}) Grand-mean relative pupil size, each trial corrected to its own pre-stimulus mean over 1 second, across the 0--5~s window in which the maximum is sought. Shading marks the stimulus. \acs{flux}, the denominator of Equation~\ref{eq:appendix_protocol_ratio}, is drawn dashed. The \acs{lm} condition constricts deepest and recovers most slowly while oscillating least.
+(\textbf{B}) Distribution of the time at which the minimum occurs, pooled across conditions. \ProtocolPlrTraceAllMinNearTroughPct{}\% of the \ProtocolPlrTraceAllNTrialMinima{} trial minima fall within 0.5~s of a trough of the 0.4-Hz modulation, so the endpoint does track the stimulus, but the remainder are spread across the epoch.
+(\textbf{C}) Mean block-level amplitude by condition; error bars are standard errors across retained blocks. The ordering is the reverse of the phasic amplitudes reported in the main article.}
+\label{fig:appendix_protocol_endpoint}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{figures/protocol_plr/fig_protocol_plr_ordering.png}
+\caption{\textbf{The order of operations is not visible in the result but is not neutral.}
+(\textbf{A}) Block-level amplitude obtained by averaging per-trial maxima, against the maximum of the trial-averaged trace, for every retained block. The dashed line is equality.
+(\textbf{B}) Mean displacement between the two, by condition; error bars are standard errors. The per-trial maximum is displaced deeper by measurement noise, and the displacement differs \ProtocolPlrAllOrderingBiasFold{}-fold across conditions, so $R$ inherits a condition-specific bias.}
+\label{fig:appendix_protocol_ordering}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/protocol_plr/fig_protocol_plr_ratios.png}
+\caption{\textbf{Distribution of the protocol-specified outcome.} Small points are retained block-level observations, large points participant means, and the horizontal bar the condition median. The dashed line marks $R = 1$, where a condition evokes the same maximum constriction as \acs{flux} in the same block.}
+\label{fig:appendix_protocol_ratios}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{figures/protocol_plr/fig_protocol_plr_bf_comparison.png}
+\caption{\textbf{Evidence for circadian modulation under three pupil outcomes.} Marker shape denotes the outcome and colour the condition. The shaded band marks evidence too weak to favour either model. Evidence favours the constant-level model M0 for the protocol-specified outcome in every condition, as it does for the phasic amplitude. The axis is \logbf{} and therefore unitless; the underlying amplitudes are in different units and are not plotted on a common scale.}
+\label{fig:appendix_protocol_bf}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.86\linewidth]{figures/protocol_plr/fig_protocol_plr_trajectories_mel.png}
+\caption{\textbf{Cosinor model fitted to the protocol-specified outcome, melanopsin-directed condition.} Upper panels show each participant's observed ratios with the conditional posterior mean and 95\% equal-tailed interval; the lower panel shows block means with standard errors against the marginal posterior. Remaining conditions are available in the accompanying analysis outputs.}
+\label{fig:appendix_protocol_trajectories}
+\end{figure}
